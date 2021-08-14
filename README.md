@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+<h2>OhMycology is a rallying point for mushroom enthusiasts at every level.</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p>This social network / identification community was developed with React, Java, Spring Hibernate, JavaScript, HTML5, CSS, MySQL, Maven, and Postman as my final capstone project for Claim Academy's Java Full Stack Web Developer bootcamp (Aug. 2021 cohort). Most of the website is fully functional, with the exception of the messenger platform which is a work in progress. It is scheduled for full deployment via ohmycology.net in the Fall of 2021.</p>
 
-## Available Scripts
+Members are prompted to register or log-in in order to participate fully in the OhMycology network. Members have access to the following:
 
-In the project directory, you can run:
+<ol>
+<li><strong>Substrate:</strong> A showcase of mushroom finds submitted by OhMycology contributors. Members provide a photo and details on their mushroom, to include morphological attributes, location, etcetera–and then the group chimes in.</li>
+<li><strong>Mycorrhizae:</strong> Members may engage in direct virtual chats with peers via the Mycorrhizae messenger platform.</li>
+<li><strong>Herbarium:</strong> Each month we provide a highlight of one of the more interesting member finds. In addition to archiving member contributions for posterity, our staff and guest bloggers provide additional information on the genus through a literature review.</li>
+<li><strong>Additional Features:</strong> editing profile; administrative moderation (remove comments).</li>
+</ol>
 
-### `npm start`
+<h3>Genesis</h3>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+We recognized a need to connect mushroom foragers, professional mycologists, and naturalists together online–and thus began OhMycology. Our aim with this social network and identification community is to solve the following challenges:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<ol>
+<li>Tired of always being the only one to show up to a mushroom hunt? OhMycology brings fellow enthusiasts straight to you from the comfort of your own home.</li>
+<li>Before deciding to sauté that puffball, you should probably get a second opinion... and a third! An old wise man once said: <em>"There are old mushroom foragers and bold mushroom foragers, but there are no old bold mushroom foragers."</em></li>
+<li>Despite there being more resources than ever before to positively ID mushrooms in the wild, people are still afraid of them. We aim to put that fear to rest!</li>
+</ol>
 
-### `npm test`
+<h3>Membership</h3>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Members are comprised of three unique roles:
 
-### `npm run build`
+<ol>
+<li><strong>Reishi:</strong> Known for centuries as the king of the mushrooms. This role is reserved for our tireless administrators who manage the Wood Wide Web and keep everything going.</li>
+<li><strong>Chanterelle:</strong> Professional mycologists belonging to a variety of scientific backgrounds. If you see a chanterelle weigh-in, chances are they know what they are talking about.</li>
+<li><strong>Morel:</strong> These are our regular Joes and Janes in the field, honing their morel compass each and every day.</li>
+</ol>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Expect to see OhMycology.net go live this Fall!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Many thanks goes out to all of the staff, instructors, and mentors of Claim Academy who helped me realize this corner of the internet.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<em>Tyler Wright, 2021</em>
