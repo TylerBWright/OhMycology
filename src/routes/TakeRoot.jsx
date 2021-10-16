@@ -4,21 +4,20 @@ import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { createPostApi } from "../api/posts_api";
+import { addPostImageApi, createPostApi } from "../api/posts_api";
 
 function TakeRoot() {
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
-  const [heightInCm, setHeight] = useState("");
+  const [heightInCm, setHeight] = useState(0);
   const [cap, setCap] = useState("");
   const [stem, setStem] = useState("");
   const [underside, setUnderside] = useState("");
   const [sporePrint, setSporePrint] = useState("");
   const [texture, setTexture] = useState("");
   const [substrate, setSubstrate] = useState("");
-  const [diameterInCm, setDiameter] = useState("");
+  const [diameterInCm, setDiameter] = useState(0);
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
@@ -52,19 +51,7 @@ function TakeRoot() {
       .then((result) => {
         const formData = new FormData();
         formData.append("file", file);
-        const config = {
-          headers: {
-            "content-type": "multipart/form-data",
-          },
-        };
-        console.log(result.data);
-
-        axios
-          .post(
-            `http://localhost:8080/posts/${result.data.uuid}/image`,
-            formData,
-            config
-          )
+        addPostImageApi(result.data.uuid, formData)
           .then((res) => {
             alert("Thank you for posting to the Substrate!");
             history.push("/home");

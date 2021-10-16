@@ -19,6 +19,16 @@ const postApi = async (relativeUrl, body) => {
     return await axios.post(relativeUrl, body)
 }
 
+const putApi = async (relativeUrl, body) => {
+    const token = localStorage.getItem("token")
+
+    axios.defaults.baseURL = process.env.REACT_APP_BASE_URL
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+    return await axios.put(relativeUrl, body)
+}
+
 const deleteApi = async (relativeUrl, body) => {
     const token = localStorage.getItem("token")
 
@@ -28,4 +38,4 @@ const deleteApi = async (relativeUrl, body) => {
     return await axios.delete(relativeUrl)
 }
 
-export { getApi, postApi, deleteApi }
+export { getApi, postApi, putApi, deleteApi }

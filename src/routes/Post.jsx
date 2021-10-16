@@ -104,7 +104,7 @@ function Post() {
                   <br />
 
                   <img
-                    src={`http://localhost:8080/posts/${postId}/image`}
+                    src={`${process.env.REACT_APP_BASE_URL}/posts/${postId}/image`}
                     style={{
                       width: "100%",
                     }}

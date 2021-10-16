@@ -1,3 +1,4 @@
+import axios from "axios"
 import { getApi, postApi } from "./api"
 
 const listPostsApi = async () => {
@@ -46,4 +47,19 @@ const createPostApi = async (
     })
 }
 
-export { listPostsApi, getPostApi, createPostApi }
+const addPostImageApi = async (postUuid, formData) => {
+    const config = {
+        headers: {
+            "content-type": "multipart/form-data",
+        },
+    };
+
+    return await axios
+        .post(
+            `${process.env.REACT_APP_BASE_URL}/posts/${postUuid}/image`,
+            formData,
+            config
+        )
+}
+
+export { listPostsApi, getPostApi, createPostApi, addPostImageApi }

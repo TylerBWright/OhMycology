@@ -1,4 +1,4 @@
-import { postApi } from "./api"
+import { getApi, postApi, putApi } from "./api"
 
 const createUserApi = async (username, email, password, bio) => {
     return await postApi("/users", {
@@ -16,4 +16,12 @@ const loginUserApi = async (username, password) => {
     })
 }
 
-export { createUserApi, loginUserApi }
+const getUserApi = async (userUuid) => {
+    return await getApi(`/users/${userUuid}`)
+}
+
+const updateUserApi = async (userUuid, user) => {
+    return await putApi(`/users/${userUuid}`, user)
+}
+
+export { createUserApi, loginUserApi, getUserApi, updateUserApi }

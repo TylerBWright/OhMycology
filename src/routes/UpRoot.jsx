@@ -63,7 +63,7 @@ function UpRoot() {
                   <div className="flexCenterColumn" key={post.uuid}>
                     <Link to={`/posts/${post.uuid}`}>
                       <img
-                        src={`http://localhost:8080/posts/${post.uuid}/image`}
+                        src={`${process.env.REACT_APP_BASE_URL}/posts/${post.uuid}/image`}
                         style={{
                           width: "100%",
                         }}
