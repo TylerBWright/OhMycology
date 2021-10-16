@@ -119,7 +119,7 @@ function App() {
             <img
               id="members"
               src="./images/members.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting a black fungus"
             />
             <blockquote>

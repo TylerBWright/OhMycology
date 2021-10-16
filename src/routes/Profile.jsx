@@ -4,7 +4,8 @@ import Sidebar from "./../components/Sidebar";
 import Footer from "./../components/Footer";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { getUserApi, updateUserApi } from "../api/users_api";
+import { formatDate } from "../helpers/date_helpers";
 
 function Profile() {
   const history = useHistory();
@@ -15,10 +16,8 @@ function Profile() {
   }, [user]);
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(sessionStorage.getItem("user"));
-    axios.defaults.withCredentials = true;
-    axios
-      .get(`http://localhost:8080/users/${loggedInUser.id}`)
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    getUserApi(loggedInUser.username)
       .then((response) => {
         setUser(response.data);
       })
@@ -28,8 +27,7 @@ function Profile() {
   }, []);
 
   const update = () => {
-    axios
-      .put(`http://localhost:8080/users/${user.id}`, user)
+    updateUserApi(user.uuid, user)
       .then((res) => {
         alert("Your profile has been updated.");
         history.push("/home");
@@ -140,7 +138,7 @@ function Profile() {
                     <em>{user.role != null ? user.role.toLowerCase() : ""}</em>
                   </div>
                   <div className="fields">
-                    <strong>Joined Date:</strong> {user.created}
+                    <strong>Joined Date:</strong> {formatDate(user.createdAt)}
                   </div>
                   <br />
                   <br />
@@ -167,10 +165,10 @@ function Profile() {
             <img
               id="members"
               src="./images/artistconk.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting a witch's butter fungus"
             />
-            <blockquote cite>
+            <blockquote>
               Carve your story into the artist's conk (Ganoderma applanatum)
             </blockquote>
             <br></br>

@@ -47,7 +47,7 @@ function Mycorrhizae() {
                   </Link>
                 </div>
               </h1>
-              <div class="typewriter">
+              <div className="typewriter">
                 <p>
                   ^ ^ ^ find a fungal friend and chat 'em up. &#128516;
                   &#128525; &#128513;
@@ -62,7 +62,7 @@ function Mycorrhizae() {
                   </Link>
                 </div>
               </h1>
-              <div class="typewriter">
+              <div className="typewriter">
                 <p>
                   ^ ^ ^ catch up with a colleague. &#129488; &#129488; &#129488;
                 </p>
@@ -100,7 +100,7 @@ function Mycorrhizae() {
         </section>
         <Footer />
       </div>
-    </div>
+    </div >
   );
 }
 

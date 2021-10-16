@@ -47,7 +47,7 @@ ReactDOM.render(
       </ScrollToTop>
       <ScrollToTop>
         <Switch>
-          <Route path="/post/:postId" exact component={Post} />
+          <Route path="/posts/:postId" exact component={Post} />
         </Switch>
       </ScrollToTop>
       <ScrollToTop>

@@ -1,16 +1,11 @@
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
 
 const Header = () => {
-  const history = useHistory();
-  const user = sessionStorage.getItem("user");
+  const user = localStorage.getItem("user");
   const Logout = () => {
-    sessionStorage.removeItem("user");
-    axios.post("http://localhost:8080/userLogout").then((res) => {
-      alert("You are logged out.");
-      history.push("/home");
-    });
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    alert("You are logged out.");
   };
 
   return (
@@ -42,7 +37,7 @@ const Header = () => {
           )}
           {user != null && (
             <li>
-              <Link onClick={() => Logout()}>Logout</Link>
+              <Link to={"/home"} onClick={() => Logout()}>Logout</Link>
             </li>
           )}
         </ul>

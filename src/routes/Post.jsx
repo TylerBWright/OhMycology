@@ -3,11 +3,13 @@ import "../css/Style.css";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import { getPostApi } from "../api/posts_api";
+import { addCommentApi, deleteCommentApi } from "../api/comments_api";
+import { formatDate } from "../helpers/date_helpers";
 
 function Post() {
-  const loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+  const loggedInUser = JSON.parse(localStorage.getItem("user"));
   const { postId } = useParams();
   const [post, setPost] = useState({});
   const [comment, setComment] = useState({});
@@ -18,9 +20,7 @@ function Post() {
   }, [user]);
 
   useEffect(() => {
-    axios.defaults.withCredentials = true;
-    axios
-      .get(`http://localhost:8080/posts/${postId}`)
+    getPostApi(postId)
       .then((response) => {
         setPost(response.data);
       })
@@ -31,11 +31,7 @@ function Post() {
   }, []);
 
   const addComment = () => {
-    axios.defaults.withCredentials = true;
-    axios
-      .post(`http://localhost:8080/posts/${postId}/comments`, {
-        content: comment,
-      })
+    addCommentApi(postId, comment)
       .then((res) => {
         post.comments.push(res.data);
         setPost({ ...post });
@@ -46,9 +42,7 @@ function Post() {
   };
 
   const removeComment = (commentId) => {
-    axios.defaults.withCredentials = true;
-    axios
-      .delete(`http://localhost:8080/posts/${postId}/comments/${commentId}`)
+    deleteCommentApi(commentId)
       .then((res) => {
         post.comments = post.comments.filter(
           (comment) => comment.id !== commentId
@@ -110,7 +104,7 @@ function Post() {
                   <br />
 
                   <img
-                    src={`http://localhost:8080/posts/${postId}/image`}
+                    src={`${process.env.REACT_APP_BASE_URL}/posts/${postId}/image`}
                     style={{
                       width: "100%",
                     }}
@@ -147,7 +141,7 @@ function Post() {
                     <strong>Description:</strong> {post.description}
                   </div>
                   <div className="fields">
-                    <strong>Submitted on:</strong> <em>{post.created}</em>
+                    <strong>Submitted on:</strong> <em>{formatDate(post.createdAt)}</em>
                   </div>
                   <div className="page">
                     <h2>Specimen # {post.id}</h2>
@@ -176,14 +170,14 @@ function Post() {
                       </div>
                       <div className="fields">
                         <strong>Submitted on:</strong>{" "}
-                        <em>{comment.created}</em>
+                        <em>{formatDate(comment.createdAt)}</em>
                       </div>
                       {loggedInUser !== null && loggedInUser.role === "REISHI" && (
                         <div className="fields">
                           <input
                             type="submit"
                             value="Remove"
-                            onClick={() => removeComment(comment.id)}
+                            onClick={() => removeComment(comment.uuid)}
                           />
                         </div>
                       )}

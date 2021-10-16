@@ -63,7 +63,7 @@ function Herbarium() {
                   </Link>
                 </div>
               </h1>
-              <div class="typewriter">
+              <div className="typewriter">
                 <p>
                   ^ ^ ^ access past specimens from the vault. &#128193;
                   &#128193; &#128193;
