@@ -101,10 +101,10 @@ function Profile() {
             <img
               id="members"
               src="./images/artistconk.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting a witch's butter fungus"
             />
-            <blockquote cite>
+            <blockquote>
               Carve your story into the artist's conk (Ganoderma applanatum)
             </blockquote>
             <br></br>

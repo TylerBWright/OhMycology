@@ -5,19 +5,20 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { createPostApi } from "../api/posts_api";
 
 function TakeRoot() {
   const history = useHistory();
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
-  const [height, setHeight] = useState("");
+  const [heightInCm, setHeight] = useState("");
   const [cap, setCap] = useState("");
   const [stem, setStem] = useState("");
   const [underside, setUnderside] = useState("");
   const [sporePrint, setSporePrint] = useState("");
   const [texture, setTexture] = useState("");
   const [substrate, setSubstrate] = useState("");
-  const [diameter, setDiameter] = useState("");
+  const [diameterInCm, setDiameter] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
@@ -34,22 +35,20 @@ function TakeRoot() {
       alert("You are missing something. Please try again.");
       return;
     }
-    axios.defaults.withCredentials = true;
-    axios
-      .post("http://localhost:8080/posts", {
-        title: title,
-        color: color,
-        height: height,
-        cap: cap,
-        stem: stem,
-        underside: underside,
-        sporePrint: sporePrint,
-        texture: texture,
-        substrate: substrate,
-        diameter: diameter,
-        location: location,
-        description: description,
-      })
+    createPostApi(
+      title,
+      color,
+      heightInCm,
+      diameterInCm,
+      cap,
+      stem,
+      underside,
+      sporePrint,
+      texture,
+      substrate,
+      location,
+      description,
+    )
       .then((result) => {
         const formData = new FormData();
         formData.append("file", file);
@@ -62,7 +61,7 @@ function TakeRoot() {
 
         axios
           .post(
-            `http://localhost:8080/posts/${result.data.id}/image`,
+            `http://localhost:8080/posts/${result.data.uuid}/image`,
             formData,
             config
           )
@@ -203,14 +202,14 @@ function TakeRoot() {
                   <input
                     type="number"
                     id="inputHeight"
-                    value={height}
+                    value={heightInCm}
                     onChange={(e) => setHeight(e.target.value)}
                   />
                   <br /> <div className="fields">Diameter (in cm):</div>
                   <input
                     type="number"
                     id="inputDiameter"
-                    value={diameter}
+                    value={diameterInCm}
                     onChange={(e) => setDiameter(e.target.value)}
                   />
                   <br />

@@ -3,8 +3,8 @@ import "../css/Style.css";
 import Sidebar from "./../components/Sidebar";
 import Footer from "./../components/Footer";
 import { useState } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { createUserApi } from "../api/users_api";
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -24,13 +24,7 @@ function Register() {
       alert("You are missing something. Please try again.");
       return;
     }
-    axios
-      .post("http://localhost:8080/register", {
-        email: email,
-        username: username,
-        password: password,
-        bio: bio,
-      })
+    createUserApi(username, email, password, bio)
       .then((res) => {
         alert("Thank you for regsitering! You may now log in.");
         history.push("/home");
@@ -177,10 +171,10 @@ function Register() {
             <img
               id="members"
               src="./images/register.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting a witch's butter fungus"
             />
-            <blockquote cite>"Look dad! Witch's butter!"</blockquote>
+            <blockquote>"Look dad! Witch's butter!"</blockquote>
             <cite>
               <span>Dyani Wright</span>
             </cite>

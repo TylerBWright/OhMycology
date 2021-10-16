@@ -48,7 +48,7 @@ function Substrate() {
                   </Link>
                 </div>
               </h1>
-              <div class="typewriter">
+              <div className="typewriter">
                 <p>
                   ^ ^ ^ post your mushroom specimen on the substrate. &#127812;
                   &#127812; &#127812;
@@ -63,7 +63,7 @@ function Substrate() {
                   </Link>
                 </div>
               </h1>
-              <div class="typewriter">
+              <div className="typewriter">
                 <p>
                   ^ ^ ^ check out member finds and give your $0.02. &#x1F50D;
                   &#x1F50D; &#x1F50D;

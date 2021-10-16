@@ -15,7 +15,7 @@ function Profile() {
   }, [user]);
 
   useEffect(() => {
-    const loggedInUser = JSON.parse(sessionStorage.getItem("user"));
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
     axios.defaults.withCredentials = true;
     axios
       .get(`http://localhost:8080/users/${loggedInUser.id}`)
@@ -167,10 +167,10 @@ function Profile() {
             <img
               id="members"
               src="./images/artistconk.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting a witch's butter fungus"
             />
-            <blockquote cite>
+            <blockquote>
               Carve your story into the artist's conk (Ganoderma applanatum)
             </blockquote>
             <br></br>

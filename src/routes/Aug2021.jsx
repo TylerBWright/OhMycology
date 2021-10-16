@@ -48,7 +48,7 @@ function Aug2021() {
                 <br />
                 <br />
               </h2>
-              <div class="night-vision-effect">
+              <div className="night-vision-effect">
                 <img
                   src="../assets/devilsurn.jpg"
                   alt="A black devil's urn fungus"
@@ -203,10 +203,10 @@ function Aug2021() {
             <img
               id="members"
               src="../images/login.jpg"
-              style={{ "border-radius": "50%" }}
+              style={{ "borderRadius": "50%" }}
               alt="Girl presenting elephant ear mushrooms"
             />
-            <blockquote cite>"Dumbo lost his ears!"</blockquote>
+            <blockquote>"Dumbo lost his ears!"</blockquote>
             <cite>
               <span>Daniella Wright</span>
             </cite>

@@ -3,15 +3,14 @@ import "../css/Style.css";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { listPostsApi } from "../api/posts_api";
 
 function UpRoot() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:8080/posts")
+    listPostsApi()
       .then((response) => {
         setPosts(response.data);
       })
@@ -61,10 +60,10 @@ function UpRoot() {
             <article>
               {posts != null &&
                 posts.map((post) => (
-                  <div className="flexCenterColumn">
-                    <Link to={`post/${post.id}`}>
+                  <div className="flexCenterColumn" key={post.uuid}>
+                    <Link to={`/posts/${post.uuid}`}>
                       <img
-                        src={`http://localhost:8080/posts/${post.id}/image`}
+                        src={`http://localhost:8080/posts/${post.uuid}/image`}
                         style={{
                           width: "100%",
                         }}
@@ -92,7 +91,7 @@ function UpRoot() {
               src="./images/morel_hand.png"
               alt="Massive morel mushroom in a hand"
             />
-            <blockquote cite>
+            <blockquote>
               "You'll find the morel when you least expect it. My advice is to
               simply not look for it and then&ndash;BAM! There it is!"
             </blockquote>

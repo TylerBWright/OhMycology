@@ -3,8 +3,8 @@ import "../css/Style.css";
 import Sidebar from "./../components/Sidebar";
 import Footer from "./../components/Footer";
 import { useState } from "react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { loginUserApi } from "../api/users_api";
 
 function Login() {
   const history = useHistory();
@@ -13,15 +13,11 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const login = () => {
-    axios.defaults.withCredentials = true;
-    axios
-      .post("http://localhost:8080/userLogin", {
-        username: username,
-        password: password,
-      })
+    loginUserApi(username, password)
       .then((res) => {
         // If success, do this
-        sessionStorage.setItem("user", JSON.stringify(res.data));
+        localStorage.setItem("token", res.data.token)
+        localStorage.setItem("user", JSON.stringify(res.data.user))
         alert("Welcome back!");
         history.push("/home");
       })
